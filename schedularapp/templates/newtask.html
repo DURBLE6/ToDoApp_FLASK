@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedular - New Task</title>
+    
+    <link href="{{ url_for( 'static', filename='bootstrap/css/bootstrap.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename='css/animate.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename='css/carousel.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename='fontawesome-free/css/all.min.css')}}" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <header>
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-end bg-dark" style="margin-top: -50px; height: 45px;">
+                        <div class="col-md pt-2 text-light">
+                            <h5>SCHEDULAR</h5>
+                        </div>
+                        <div class="col-md pt-1 text-end">
+                            <a class="btn btn-outline-light" style="text-decoration: none;" href="{{url_for('signout')}}" onclick="return confirm('Are you sure you want to sign out')">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md mt-2">
+                        <h5>WELCOME {{ user.first_Name }}</h5>
+                    </div>
+                    <div class="col-md text-end mt-2">
+                        <a class="btn btn-outline-dark" href="{{url_for('newtask')}}">All Tasks</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 mt-2 text-center">
+                        <h5><strong>Create New Task</strong></h5>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-6 text-center">
+                        <form action="" method="post">
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="title" class="form-label">Title: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="title" id="title" placeholder="Task title">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="note" class="form-label">Note: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="note" id="note" placeholder="Somethimg about this task(Optional)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="dateCreated" class="form-label">Date Created: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="date" id="calender1" placeholder="YY/MM/DD">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark mt-3">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.js')}}" type="text/js" lang="javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $("#calender1").datepicker({dateFormat: "yy-mm-dd"});
+        });
+    </script>
+
+</body>
+</html>

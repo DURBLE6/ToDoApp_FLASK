@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedular - Dashboard</title>
+    
+    <link href="{% static 'scheduleapp/bootstrap/css/bootstrap.min.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'scheduleapp/css/animate.min.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'scheduleapp/css/carousel.css' %}" type="text/css" rel="stylesheet">
+    <link href="{% static 'scheduleapp/fontawesome-free/css/all.min.css' %}" type="text/css" rel="stylesheet">
+
+    <style type="text/css">
+        /* div{
+         border: solid 1px;
+    }  */
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <header>
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-end bg-dark" style="margin-top: -50px; height: 45px;">
+                        <div class="col-md pt-2 text-light">
+                            <h5>SCHEDULAR</h5>
+                        </div>
+                        <div class="col-md pt-1 text-end">
+                            <a class="btn btn-outline-light" style="text-decoration: none;" href="{% url 'signout' %}" onclick="return confirm('Are you sure you want to sign out')">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md mt-2">
+                        <h5>WELCOME USERNAME</h5>
+                    </div>
+                    <div class="col-md text-end mt-2">
+                        <a class="btn btn-outline-danger" href="#">Ignore Changes</a>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 mt-2 text-center">
+                        <h5><strong>Edit Task</strong></h5>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-6 text-center">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="title" class="form-label">Title: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="title" id="title" placeholder="Task title">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="note" class="form-label">Note: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="note" id="note" placeholder="Somethimg about this task(Optional)">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="dateCreated" class="form-label">Date: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="dateCreated" id="dateCreated" placeholder="DD/MM/YY">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="priority" class="form-label">Priority: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="priority" id="priority" placeholder="Set Priority">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="category" class="form-label">Categpory: </label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="category" id="category" placeholder="Categpory">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2 pt-2">
+                                    <label for="dueDate" class="form-label">Due Date:</label>
+                                </div>
+                                 <div class="col-md">
+                                    <input class="form-control" type="text" name="dueDate" id="dueDate" placeholder="DD/MM/YY (Optional)">
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-success mt-3">Save Changes</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{% static 'scheduleapp/bootstrap/js/bootstrap.bundle.js' %}" type="text/js" lang="javascript"></script>
+</body>
+</html>

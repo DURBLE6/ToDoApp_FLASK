@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedular - Sign up</title>
+    
+    <link href="{{ url_for( 'static', filename = 'bootstrap/css/bootstrap.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename = 'css/animate.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename = 'css/carousel.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename = 'fontawesome-free/css/all.min.css')}}" type="text/css" rel="stylesheet">
+
+    <style type="text/css">
+        topbar{
+                position: fixed;
+                top: 0;
+            }
+        @media only screen and (min-width: 374px) {
+            body {
+                background-image: url("{{url_for( 'static', filename = 'images/img-4.jpg')}}");
+                background-size: cover;
+                background-position: absolute;
+                background-repeat: no-repeat;
+            }
+                body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                height: 140%;
+                background-color: rgba(0, 0, 0, 0.9);
+                z-index: -2;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <header>
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-end bg-light pt-1 topbar" style="margin-top: -50px; height: 35px;">
+                        <div class="col-md-10 text-end">
+                            <small>Already have account? <span><a style="text-decoration: none;" href="{{url_for('home')}}"> Login instead</a></span></small>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <section>
+            <div class="container-fluid">
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-6 text-white text-center">
+                        <h5>WELCOME TO SCHEDULAR</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md text-center text-light">
+                        <small>PLEASE COMPLETE ALL THE FIELDS TO CREATE AN ACCOUNT</small>
+                         {% with msg = get_flashed_messages(with_categories = True) %} {% if msg: %}
+                            {% for cat,m in msg: %} {% if cat == 'error': %} <div class="badge bg-danger mb-4">{{ m|safe}}</div>
+                            {% elif cat == 'success': %} <div class="badge bg-success mb-4  text-center">{{ m|safe}}</div>
+                            {% else: %} <div class="badge bg-warning mb-4  text-center">{{ m|safe}}</div>
+                            {% endif %} {% endfor %} {% endif %}
+                            {% endwith %}
+                    </div>
+                </div>
+                <div class="row mt-5 justify-content-center">
+                    <div class="col-md-6 text-light text-center">
+                        <form action="" method="post">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control mb-3" name="firstname" id="firstName" placeholder="First Name">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control mb-3" name="lastname" id="lastName" placeholder="Surname">
+                            <label for="email">Username/Email</label>
+                            <input type="text" class="form-control mb-3" name="email" id="email" placeholder="Email">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control mb-3" name="password" id="password" placeholder="Password">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control mb-3" name="password-2" id="confirmPassword" placeholder="Repeat Password">
+                            <div class="row mb-2">
+                                <div class="col-md d-flex justify-content-start">
+                                    <input type="checkbox" id="Checkbox">
+                                    <label for="Checkbox">show password</label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap/js/bootstrap.bundle.js')}}" type="text/js" lang="javascript"></script>
+    <script type="text/js" lang="javascript">
+        $().ready()
+    </script>
+</body>
+</html>

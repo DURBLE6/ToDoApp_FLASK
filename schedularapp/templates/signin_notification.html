@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedular - Dashboard</title>
+    
+    <link href="{{ url_for( 'static', filename='bootstrap/css/bootstrap.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename='css/animate.min.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename='css/carousel.css')}}" type="text/css" rel="stylesheet">
+    <link href="{{ url_for( 'static', filename='fontawesome-free/css/all.min.css')}}" type="text/css" rel="stylesheet">
+
+    <style type="text/css">
+     
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <div class="container-fluid">
+                <div class="row justify-content-center mt-5">
+                    <div class="col-md-6 mt-2 bg-success text-light text-center">
+                        <h3><strong>Notification</strong></h3>
+                        <div>
+                            {% with msg = get_flashed_messages(with_categories = True) %} {% if msg: %}
+                            {% for cat,m in msg: %} {% if cat == 'error': %} <div class="badge bg-danger mb-4">{{ m|safe}}</div>
+                            {% elif cat == 'success': %} <div class="badge bg-success mb-4  text-center">{{ m|safe}}</div>
+                            {% else: %} <div class="badge bg-warning mb-4  text-center">{{ m|safe}}</div>
+                            {% endif %} {% endfor %} {% endif %}
+                            {% endwith %}
+                            <a href="{{url_for('home')}}" style="text-decoration: none; color: white;">Log in with your credentials</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.bundle.js')}}" type="text/js" lang="javascript"></script>
+</body>
+</html>
