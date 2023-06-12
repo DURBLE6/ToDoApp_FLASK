@@ -96,8 +96,16 @@
     </main>
     <script src="{{url_for('static', filename='jquery.min.js')}}"></script>
     <script src="{{url_for('static', filename='bootstrap/js/bootstrap.bundle.js')}}" type="text/js" lang="javascript"></script>
-    <script type="text/js" lang="javascript">
-        $().ready()
+    <script>
+        $(document).ready(function(){
+            $('#password, #confirmPassword').attr('type', 'password')
+            $('#Checkbox').click(function(){
+                if ($(this).is(':checked')){
+                    $('#password, #confirmPassword').attr('type', 'text')
+                }
+                else{$('#password, #confirmPassword').attr('type', 'password')}
+                })
+        })
     </script>
 </body>
 </html>
